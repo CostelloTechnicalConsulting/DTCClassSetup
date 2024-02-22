@@ -1,0 +1,34 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Sysinternals\ZoomIt]
+"EulaAccepted"=dword:00000001
+"BreakOpacity"=dword:00000032
+"BreakTimeout"=dword:00000002
+"BreakOnSecondary"=dword:00000000
+"ShowExpiredTime"=dword:00000000
+"FilePath"="C:\\Utilities\\ZoomIt.exe"
+"ToggleKey"=dword:00000231
+"LiveZoomToggleKey"=dword:00000234
+"DrawToggleKey"=dword:00000232
+"PenColor"=dword:000000ff
+"PenWidth"=dword:00000003
+"OptionsShown"=dword:00000001
+"BreakPenColor"=dword:000000ff
+"BreakTimerKey"=dword:00000233
+"BreakPlaySoundFile"=dword:00000000
+"BreakSoundFile"=""
+"BreakShowBackgroundFile"=dword:00000000
+"BreakBackgroundStretch"=dword:00000000
+"BreakBackgroundFile"=""
+"BreakTimerPosition"=dword:00000004
+"BreakShowDesktop"=dword:00000001
+"FontScale"=dword:0000000a
+"ShowTrayIcon"=dword:00000001
+"AnimnateZoom"=dword:00000001
+"TelescopeZoomOut"=dword:00000001
+"SnapToGrid"=dword:00000001
+"ZoominSliderLevel"=dword:00000003
+"Font"=hex:f5,ff,ff,ff,00,00,00,00,00,00,00,00,00,00,00,00,90,01,00,00,00,00,\
+  00,00,00,00,00,00,4d,53,20,53,68,65,6c,6c,20,44,6c,67,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00
+
