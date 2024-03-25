@@ -33,7 +33,7 @@ $urls = @(
 )
 
 # Download the files in the array to the downloads directory
-$downloadsDir = [System.Environment]::GetFolderPath("Downloads")
+$downloadsDir = "$env:USERPROFILE\Downloads"
 $urls | ForEach-Object {
     $url = $_
     $fileName = $url.Split("/")[-1]
@@ -42,7 +42,7 @@ $urls | ForEach-Object {
 }
 
 # Install the downloaded files
-$downloadsDir = [System.Environment]::GetFolderPath("Downloads")
+$downloadsDir = (New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path
 $installers = @(
     { path = "$downloadsDir\npp.8.5.8.Installer.x64.exe", args = "/S" },
     { path = "$downloadsDir\VSCodeSetup-x64-1.83.1.exe", args = "/VERYSILENT /NORESTART /MERGETASKS=!runcode,addcontextmenufiles,addcontextmenufolders" }
