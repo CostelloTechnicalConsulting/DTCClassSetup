@@ -44,8 +44,8 @@ $urls | ForEach-Object {
 # Install the downloaded files
 $downloadsDir = (New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path
 $installers = @(
-    { path = "$downloadsDir\npp.8.5.8.Installer.x64.exe", args = "/S" },
-    { path = "$downloadsDir\VSCodeSetup-x64-1.83.1.exe", args = "/VERYSILENT /NORESTART /MERGETASKS=!runcode,addcontextmenufiles,addcontextmenufolders" }
+    @{ path = "$downloadsDir\npp.8.5.8.Installer.x64.exe"; args = "/S" },
+    @{ path = "$downloadsDir\VSCodeSetup-x64-1.83.1.exe"; args = "/VERYSILENT /NORESTART /MERGETASKS=!runcode,addcontextmenufiles,addcontextmenufolders" }
 )
 
 $installers | ForEach-Object {
