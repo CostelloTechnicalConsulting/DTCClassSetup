@@ -1,19 +1,20 @@
+$blobContainerURL = "https://ctcdownloads.blob.core.windows.net/classsetup"
+$guid = [guid]::NewGuid().ToString()
+$tempXMLFile = "$env:TEMP\$guid-temp.xml"
+
 # Make a c:\Utilies directory
 New-Item -Path "c:\Utilities" -ItemType "directory" -Force
 
-# REST call to get contents of the storage account blob container at https://ctcdownloads.blob.core.windows.net/classsetup
-$uri = "https://ctcdownloads.blob.core.windows.net/classsetup?restype=container&comp=list"
-$response = Invoke-RestMethod -Uri $uri -Method Get -Headers @{"x-ms-version"="2017-11-09";"x-ms-date"=$(Get-Date -Format u);"x-ms-blob-type"="BlockBlob";"Accept-Encoding"="UTF-8"}
-
-# convert xml in response to an object
-[xml]$response = $response
+# Use Storage account APIs to list out contents of the container
+# Write the output to a temp file
+Invoke-RestMethod -Uri $($blobContainerURL + "?restype=container&comp=list") -Method Get -OutFile $tempXMLFile
+# Read it back in as XML (UTF8 encoded)
+[xml]$xmlData = get-content $tempXMLFile -Encoding "utf8"
 
 
 # Enumerate the blobs in the response and download them to the c:\Utilities directory
-
-
-
-$blobs = $response.EnumerationResults.Blobs.Blob
+# Get the list of blobs
+$blobs = $xmlData.EnumerationResults.Blobs.Blob
 $blobs | ForEach-Object {
     $blob = $_
     $blobName = $blob.Name
